@@ -1,3 +1,11 @@
-from django.test import TestCase
+from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-# Create your tests here.
+browser = webdriver.Firefox(firefox_binary=FirefoxBinary(
+    firefox_path='/usr/bin/firefox'
+))
+
+
+browser.get('http://localhost:8000')
+
+assert 'Django' in browser.title
