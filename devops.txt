@@ -63,3 +63,7 @@ $ npm -v
 -> sudo npm install -g bower
 -> npm install
 -> bower install
+
+
+#
+export PATH=$PATH:/home/taliban/Downloads/Bin/
