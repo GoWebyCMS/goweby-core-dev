@@ -5,6 +5,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 
 from portfolio.models import Project
+from portfolio.views import portfolio_list, home_page
 
 # Create your tests here.
 
@@ -18,7 +19,8 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = home_page(request)
         # test implementation instead of testing constants
-        self.assertEqual(response.content.decode(), response)
+        expected_html = render_to_string('home.html')
+        self.assertEqual(response.content.decode(), expected_html)
 
 
 class ProjectModelTest(TestCase):
@@ -38,3 +40,9 @@ class ProjectModelTest(TestCase):
         second_saved_project = saved_projects[1]
         self.assertEqual(first_saved_project.name,'The first ever test project')
         self.assertEqual(second_saved_project.name, 'The second test project')
+
+    def test_portfolio_list_returns_correct_html(self):
+        request = HttpRequest()
+        response = portfolio_list(request)
+        expected_html = render_to_string('portfolio/portfolio_list.html')
+        self.assertEqual(response.content.decode(), expected_html)
