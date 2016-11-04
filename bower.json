@@ -1,0 +1,20 @@
+{
+  "name": "django-web-boilerplate",
+  "description": "A set of Django Apps for the Web",
+  "main": "index.js",
+  "authors": [
+    "pycat"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/kkampardi/django-web-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
