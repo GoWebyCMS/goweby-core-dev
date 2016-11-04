@@ -12,7 +12,7 @@ from portfolio.views import portfolio_list, home_page
 class HomePageTest(TestCase):
 
     def test_root_url_resolves_to_home_page_view(self):
-        found = resolve('/portfolio')
+        found = resolve('/portfolio_home/')
         self.assertEqual(found.func, home_page)
 
     def test_home_page_returns_correct_html(self):
@@ -24,6 +24,7 @@ class HomePageTest(TestCase):
 
 
 class ProjectModelTest(TestCase):
+
     def test_saving_retrieving_projects(self):
         first_project = Project()
         first_project.name = "The first ever test project"
@@ -40,6 +41,12 @@ class ProjectModelTest(TestCase):
         second_saved_project = saved_projects[1]
         self.assertEqual(first_saved_project.name,'The first ever test project')
         self.assertEqual(second_saved_project.name, 'The second test project')
+
+class PortfolioListPageTest(TestCase):
+
+    def test_portfolio_list_url_resolves_portfolio_list_view(self):
+        url_found = resolve('/portfolio_home/portfolio_list/')
+        self.assertEqual(url_found.func, portfolio_list)
 
     def test_portfolio_list_returns_correct_html(self):
         request = HttpRequest()

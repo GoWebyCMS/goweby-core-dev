@@ -8,8 +8,8 @@ def home_page(request):
     return render(request, 'home.html')
 
 # TODO: Find out how to UT test a class based view
-class PortfolioListView(ListView):
-    pass
+# class PortfolioListView(ListView):
+
 
 def portfolio_list(request):
     return render(request, 'portfolio/portfolio_list.html')

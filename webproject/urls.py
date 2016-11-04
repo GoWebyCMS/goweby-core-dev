@@ -17,10 +17,9 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from portfolio import views
-
+from portfolio import urls as port_urls
 
 urlpatterns = [
-    # url(r'^admin/', admin.site.urls),
-    # url(r'^/', include('portfolio.urls')),
-    url(r'^portfolio', views.home_page, name='home'),
+    url(r'^admin/', admin.site.urls),
+    url(r'^', include(port_urls)),
     ]
