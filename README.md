@@ -3,8 +3,6 @@
 ## A Django Boiler Plate for Web
 ==========
 
-|build-status-image|
-
 Hatchery
 ------
 
