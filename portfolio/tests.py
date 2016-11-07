@@ -5,7 +5,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 
 from portfolio.models import Project
-from portfolio.views import portfolio_list, home_page
+from portfolio.views import portfolio_list, home_page, portfolio_details
 
 # Create your tests here.
 
@@ -52,4 +52,16 @@ class PortfolioListPageTest(TestCase):
         request = HttpRequest()
         response = portfolio_list(request)
         expected_html = render_to_string('portfolio/portfolio_list.html')
+        self.assertEqual(response.content.decode(), expected_html)
+
+class PortfolioDetailsPageTest(TestCase):
+
+    def test_portfolio_details_url_resolves_portfolio_detail_view(self):
+        det_found = resolve('/portfolio_home/(?P<pk>[0-9]+)/')
+        self.assertEqual(det_found.func, portfolio_list)
+
+    def test_portfolio_details_returns_correct_html(self):
+        request = HttpRequest()
+        response = portfolio_details(request, 1)
+        expected_html = render_to_string('portfolio/portfolio_details.html')
         self.assertEqual(response.content.decode(), expected_html)

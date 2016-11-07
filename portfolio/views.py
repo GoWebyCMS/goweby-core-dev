@@ -13,3 +13,6 @@ def home_page(request):
 
 def portfolio_list(request):
     return render(request, 'portfolio/portfolio_list.html')
+
+def portfolio_details(request, pk):
+    return render(request, 'portfolio/portfolio_details.html')
