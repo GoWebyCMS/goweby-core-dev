@@ -1,5 +1,5 @@
 # Hatchery
-## A Django Boiler Plate for Web
+## A custom Django CMS
 
 About
 ------
