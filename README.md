@@ -15,13 +15,13 @@ CMS for multiple purpose web applications  .
 
 Installation for Development
 ---------------
-## Install and setup Virtualenv
+### Install and setup Virtualenv
 
 - $ sudo pip install virtualenv
 - $ virtualenv -p /usr/bin/python3 envname
 - $ source envname/bin/activate
 
-## Build Assets
+### Build Assets
 
 Using the gulp task runner
 
