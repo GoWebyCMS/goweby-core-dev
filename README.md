@@ -1,25 +1,21 @@
 ==========
-Hatchery - A Django Boiler Plate for Web
+Hatchery
+## A Django Boiler Plate for Web
 ==========
 
-.. image:: http://slack.pinaxproject.com/badge.svg
-   :target: http://slack.pinaxproject.com/
-
-.. image:: https://img.shields.io/travis/pinax/pinax-blog.svg
-    :target: https://travis-ci.org/pinax/pinax-blog
-
-.. image:: https://img.shields.io/coveralls/pinax/pinax-blog.svg
-    :target: https://coveralls.io/r/pinax/pinax-blog
-
+|build-status-image|
 
 Hatchery
 ------
 
-Hatchery is an open-source platform built on the Django Web Framework. It intents to be an ecosystem of reusable Django apps, for the Web.
+Hatchery is an open-source platform built on the Django Web Framework.
+It intents to be an ecosystem of reusable Django apps, for the Web.
+
+This project is in development progress. The basic idea is the construction of an easy to use
+CMS for multiple purpose web applications  .
 
 
-
-Installation
+Installation for Development
 ---------------
 ## Install and setup Virtualenv
 
@@ -48,10 +44,3 @@ Current features include:
 * use of Creole (optional) and Markdown as markup format
 * Atom and RSS feeds
 * public but secret urls for unpublished blog posts for easier review
-
-
-History
---------
-
-This project is in development progress. The basic idea is the construction of an easy to use
-CMS for multiple purpose web applications  
