@@ -21,9 +21,22 @@ Installation for Development
 
 ### Install project dev dependancies
 
-* First activate the environment
-- $ pip install -r requirements/dev.txt
+  First activate the environment
 
+    - $ pip install -r requirements/dev.txt
+
+  Time for database setup
+
+    - python manage.py migrate
+
+  Create superuser
+
+    - python manage.py createsuperuser
+
+  Run the development server
+
+    - python manage.py runserver
+     
 
 ### Build Assets
 
