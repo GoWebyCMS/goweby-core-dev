@@ -1,7 +1,7 @@
 # Hatchery
 ## A Django Boiler Plate for Web
 
-Hatchery
+About
 ------
 
 Hatchery is an open-source platform built on the Django Web Framework.
@@ -30,13 +30,14 @@ Tasks:
 - `gulp`: runs the 2 above
 
 
-
 Features
 ---------
 
 Current features include:
 
-* support for multiple channels (e.g. technical vs business)
-* use of Creole (optional) and Markdown as markup format
-* Atom and RSS feeds
-* public but secret urls for unpublished blog posts for easier review
+  TODO: Add current features info
+
+
+Future features include:
+
+  TODO: Add future features info
