@@ -19,6 +19,12 @@ Installation for Development
 - $ virtualenv -p /usr/bin/python3 envname
 - $ source envname/bin/activate
 
+### Install project dev dependancies
+
+* First activate the environment
+- $ pip install -r requirements/dev.txt
+
+
 ### Build Assets
 
 Using the gulp task runner
