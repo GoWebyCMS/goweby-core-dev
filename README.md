@@ -19,34 +19,40 @@ Installation for Development
 - $ virtualenv -p /usr/bin/python3 envname
 - $ source envname/bin/activate
 
-### Install project dev dependancies
+### Install project dev dependencies
 
-  First activate the environment
+#### Install Front End dependencies
+
+  First install bower and gulp task runner
+
+  - $ npm install -g gulp bower
+
+  Install npm and bower dependencies
+
+  - $ npm install
+
+  - $ bower install
+
+#### Python & Django dependencies
+
+  Virtual environment use is strongly recommended
 
     - $ pip install -r requirements/dev.txt
 
   Time for database setup
 
-    - python manage.py migrate
+  - make start # This will make the first migrations, and a root superuser creation
 
-  Create superuser
-
-    - python manage.py createsuperuser
-
-  Run the development server
-
-    - python manage.py runserver
-     
 
 ### Build Assets
 
-Using the gulp task runner
+Use the Gulp Task Runner
 
 Tasks:
 
-- `gulp sass`: compiles sass to css and uses an autoprefixer for the css
-- `gulp sass:watch`: watches predefined sources for changes and runs `gulp sass`
-- `gulp`: runs the 2 above
+- $ gulp sass # compiles sass to css and uses an autoprefixer for the css
+- $ gulp sass:watch # watches predefined sources for changes and runs `gulp sass`
+- $ gulp # Compilation of sass and watch
 
 
 Features
