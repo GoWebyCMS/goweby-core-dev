@@ -6,9 +6,17 @@ migrate:
 	./manage.py migrate --noinput
 
 superuser:
-	./manage.py createsuperuser --username=root --email=root@root.com --noinput
+	./manage.py createsuperuser --username=admin --email=kkampardi@gmail.com --noinput
 
-start: clean migrate superuser
+data:
+	./manage.py loaddata portfolio.json
+
+setup: clean migrate data superuser
+
+dumpdata:
+	./manage.py dumpdata portfolio --indent=2 --output=portfolio/fixtures/portfolio.json
+	./manage.py dumpdata blog --indent=2 --output=blog/fixtures/blog.json
+	./manage.py dumpdata home --indent=2 --output=home/fixtures/home.json
 
 make_portfolio_db:
 	./manage.py makemigrations portfolio --noinput
