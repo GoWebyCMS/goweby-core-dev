@@ -23,11 +23,11 @@ Installation for Development
 
 #### Install Front End dependencies
 
-  First install bower and gulp task runner
+First install bower and Gulp task runner
 
   - $ npm install -g gulp bower
 
-  Install npm and bower dependencies
+Install npm and bower dependencies
 
   - $ npm install
 
