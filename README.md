@@ -1,4 +1,5 @@
-# Hatchery
+# Hatchery ![alt text](https://github.com/kkampardi/hatchery/blob/master/portfolio/static/img/logo.png "Hatchery Project Logo")
+
 ## A custom Django CMS
 
 About
@@ -23,11 +24,11 @@ Installation for Development
 
 #### Install Front End dependencies
 
-  First install bower and gulp task runner
+First install bower and Gulp task runner
 
   - $ npm install -g gulp bower
 
-  Install npm and bower dependencies
+Install npm and bower dependencies
 
   - $ npm install
 
