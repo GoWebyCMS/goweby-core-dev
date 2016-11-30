@@ -5,7 +5,7 @@ from .models import Project
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
-    list_display = ('name',)
+    list_display = ('name', 'short_description', 'category', 'status', )
     prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Project, ProjectAdmin)
