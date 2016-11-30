@@ -1,4 +1,4 @@
-# Hatchery ![alt text](https://github.com/kkampardi/hatchery/blob/master/portfolio/static/img/logo.png "Hatchery Project Logo")
+![alt text](https://github.com/kkampardi/hatchery/blob/master/portfolio/static/img/sm-logo.png "Hatchery Project Logo")# Hatchery 
 
 ## A custom Django CMS
 
