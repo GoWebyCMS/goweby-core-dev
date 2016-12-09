@@ -27,12 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
 
 # Third Party applications
-INSTALLED_APPS[
+INSTALLED_APPS += [
     'ckeditor',
     'djangobower',
     'compressor',
@@ -46,6 +47,9 @@ INSTALLED_APPS += [
 
 # Enable compression app for css/js/img
 COMPRESS_ENABLED = True
+
+# Site defult id
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
