@@ -29,13 +29,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+# Third Party applications
+INSTALLED_APPS[
     'ckeditor',
     'djangobower',
     'compressor',
+]
+# my custom applications
+INSTALLED_APPS += [
     'fts',
     'portfolio',
+    'comingsoon',
 ]
 
+# Enable compression app for css/js/img
 COMPRESS_ENABLED = True
 
 MIDDLEWARE = [
