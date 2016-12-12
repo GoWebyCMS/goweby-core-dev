@@ -18,7 +18,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -27,17 +26,29 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+# Third Party applications
+INSTALLED_APPS += [
     'ckeditor',
     'djangobower',
     'compressor',
+]
+# my custom applications
+INSTALLED_APPS += [
     'fts',
     'portfolio',
+    #'comingsoon',
 ]
 
+# Enable compression app for css/js/img
 COMPRESS_ENABLED = True
 
+# Site defult id
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
