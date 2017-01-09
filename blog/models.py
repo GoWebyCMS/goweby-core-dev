@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 # create model manager for Posts to include custom filter
 class PublishedManager(models.Manager):
@@ -57,6 +58,10 @@ class Post(models.Model):
 
     objects = models.Manager()  # The default manager.
     published = PublishedManager()  # Our custom manager.
+
+    def get_absolute_url(self):
+        return reverse('post_detail',
+                       args=[self.slug])
 
     class Meta:
         ordering = ('-featured','publish',)

@@ -69,7 +69,7 @@
                 {% endfor %}</a>
               </span>
               <h2><span>
-                <a href="{% url 'post_detail' slug=post.slug %}">{{post.title}}</a>
+                <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
               </span></h2>
             </div>
 
