@@ -1,0 +1,269 @@
+{% load staticfiles %}
+{% load my_tags %}
+{% load disqus_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}The Amateur Avant-Garde - Blog{% endblock %}</title>
+    <!-- Bootstrap Core CSS -->
+    {% compress css %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/blog-home.css' %}" rel="stylesheet">
+    <link href="{% static 'mystyles.css' %}" rel="stylesheet">
+    {% endcompress %}
+
+    <!-- Google Web Fonts -->
+    <!-- load fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+    <!-- Facebook Meta -->
+    <meta property="og:url"                content="http://theamateuravant-garde.com/{{post.slug}}" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="{{post.title}}" />
+    <meta property="og:description"        content="{{post.body|safe|truncatewords:30|linebreaks}}" />
+    <meta property="og:image"              content="static/media/{{post.featured_image}}" />
+
+</head>
+<body>
+<!--exp nav -->
+<header>
+  <!-- Fixed navbar -->
+  <div id="nav">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <p class="h1 hidden-sm hidden-md hidden-lg">
+            <a href="#" id="custom-collapse-navbar-brand">The amateur avant-garde</a>
+          </p>
+          <div class="col-xs-7 hidden-sm hidden-md hidden-lg">
+            <ul class="nav navbar-nav navbar-right nav-social nav-pills">
+                <li><a href="https://www.facebook.com/profile.php?id=100012050839136" target="_blank"><i class="fa fa-sm fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/theamateuravantgarde/" target="_blank"><i class="fa fa-sm fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/Eleni_Zouliami" target="_blank"><i class="fa fa-sm fa-twitter"></i></a></li>
+                  <div id="top-search">
+                    <a href="#"><i class="fa fa-search"></i></a>
+                  </div>
+                  <div class="show-search" style="display: none;">
+                    <form action="/search" id="searchform" method="get" role="search">
+                      <div>
+                        <input id="s" name="q" placeholder="Search and hit enter..." type="text">
+                      </div>
+                    </form>
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            {% url 'post_list' as home_url %}
+            <li {% if request.get_full_path == home_url %}class="active"{% endif %}><a href="{% url 'post_list' %}">Home</a></li>
+            {% show_pages_menu my_tags  %}
+          </ul>
+          <p class="col-md-5 col-sm-4 hidden-xs">
+            <a href="#" id="custom-navbar-brand" style="display:none;">The amateur avant-garde</a>
+          </p>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <ul class="nav navbar-nav nav-social nav-pills hidden-xs">
+                <li><a href="https://www.facebook.com/profile.php?id=100012050839136" target="_blank"><i class="fa fa-sm fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/theamateuravantgarde/" target="_blank"><i class="fa fa-sm fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/Eleni_Zouliami" target="_blank"><i class="fa fa-sm fa-twitter"></i></a></li>
+              </ul>
+            </li>
+            <li class="hidden-xs">
+              <div id="top-search">
+                <a href="#"><i class="fa fa-search"></i></a>
+              </div>
+              <div class="show-search" style="display: none;">
+                <form action="/search" id="searchform" method="get" role="search">
+                  <div>
+                    <input id="s" name="q" placeholder="Search and hit enter..." type="text">
+                  </div>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </div>
+</header>
+
+  <!-- Jumbotron  for logo-->
+    <div id="scroll-logo" class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-1">
+              <img  class="logo img-responsive" src="{% static 'img/logo.jpg' %}" alt="Logo text"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Content -->
+    {% block content %}
+    {% endblock content %}
+    <!-- /.container -->
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="well">
+              <ul class="list-inline newsletter">
+                <li>
+                 <img class="img-responsive" src="http://3.bp.blogspot.com/-tRlqsjMVnOU/VUERoOpwWDI/AAAAAAAAFBQ/F6w9X-uf07M/s1600/sketch-subscribe.png">
+               </li>
+               <li>
+                 <div class="form">
+                       <form action="https://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=tumblr/zFuC', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow">
+                          <input class="email" name="email" placeholder="Your Email Address" type="text">
+                          <input name="uri" value="tumblr/zFuC" type="hidden">
+                          <input name="loc" value="en_US" type="hidden">
+                          <input class="btn" value="Subscribe" type="submit">
+                       </form>
+                    <!--block-->
+                  </div>
+                </li>
+               </ul>
+             </div>
+           </div>
+        </div>
+        <div class="row footer-social">
+              <ul class="list-inline f-social">
+                <li>
+                  <a href="https://www.facebook.com/profile.php?id=100012050839136" target="_blank">
+                  <i class="fa fa-facebook"> </i>
+                  <span>Facebook</span>
+                  </a>
+                </li>
+                 <li>
+                   <a href="https://www.instagram.com/theamateuravantgarde/" target="_blank">
+                   <i class="fa fa-instagram"></i>
+                   <span>Instagram</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="https://twitter.com/Eleni_Zouliami" target="_blank">
+                   <i class="fa fa-twitter"></i>
+                    <span>Twitter</span>
+                    </a>
+                  </li>
+                </ul>
+        </div>
+        <div class="row copyright">
+          <p>© 2011 Eleni Zouliami - All Rights Reserved<br>
+          Handcrafted & Coded By <a ref="dofollow" href="http://kkabardi.me" id="mycontent" title="Full Stack Web Developer" target="_blank">PyCat</a></p>
+          <a class="to-top" href="#">Back to top <i class="fa fa-angle-double-up"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- End footer -->
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- custom navbar search -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script type='text/javascript'>//<![CDATA[
+      jQuery(document).ready(function($) {
+          "use strict";
+          $('#nav').affix({
+                offset: {
+                  top: $('header').height()
+                }
+          });
+      //]]>
+      });
+      $(window).scroll(function() {
+        if (jQuery(this).scrollTop()>150)
+         {
+          jQuery('#custom-navbar-brand').fadeIn("5");
+         }
+        else
+         {
+          jQuery('#custom-navbar-brand').fadeOut("5");
+         }
+
+         if (jQuery(this).scrollTop()>150)
+          {
+           jQuery('#custom-collapse-navbar-brand').fadeIn("5");
+          }
+         else
+          {
+           jQuery('#custom-collapse-navbar-brand').fadeOut("5");
+          }
+      });
+      </script>
+    <!-- to top js -->
+    <script type='text/javascript'>//<![CDATA[
+      jQuery(document).ready(function($) {
+          "use strict";
+          $('.to-top').click(function() {
+              $('html, body').animate({
+                  scrollTop: 0
+              }, 800);
+              return false;
+          });
+      });
+  //]]>
+  </script>
+  <!-- To search event -->
+  <script type='text/javascript'>//<![CDATA[
+    jQuery(document).ready(function($) {
+        "use strict";
+        $('#top-search a').on('click', function(e) {
+            e.preventDefault();
+            $('.show-search').slideToggle('fast');
+        });
+        $('.to-top').click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+        $('.bxslider').bxSlider({
+            adaptiveHeight: true,
+            mode: 'fade',
+            pager: false,
+            captions: true
+        });
+        $(document).ready(function() {
+            $(".container").fitVids();
+        });
+        $('.menu').slicknav({
+            prependTo: '.menu-mobile',
+            label: ''
+        });
+    });
+    $('.separator').css('float', '');
+    $('.separator,.separator a').css('margin-left', '').css('margin-right', '').css('margin-bottom', '');
+//]]></script>
+<!-- end -- >
+  <script id="dsq-count-scr" src="//theamateuravantgarde.disqus.com/count.js" async></script>
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1293895054014549";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

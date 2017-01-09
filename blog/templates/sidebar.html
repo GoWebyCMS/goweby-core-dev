@@ -1,0 +1,76 @@
+<div class="panel-group">
+  <!-- About  Panel -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="title"><span>About me</span></h2>
+    </div>
+    <div class="panel-body">
+      <div class="widget-content">
+          <div class="textwidget"><div style="text-align: center; width: 100%;">
+            <img alt="" src="/static/media/page/post3_0HxFleM.jpg" style="max-width: 100%;">
+          </div>
+          <div class="sidebar-about" >Quisque felis quam, sollicitudin in justo non, maximus sagittis ipsum. Aenean sodales tempus turpis, ut pulvinar orci sagittis a.<br><a class="post-more" href="http://theamateuravant-garde.com/about" style="margin-bottom: 5px;">Learn more about me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Social Panel -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="title"><span>Labels </span></h2>
+    </div>
+    <div class="panel-body">
+      <div class="widget-content cloud-label-widget-content">
+            <span class="label-size label-size-5">
+              <a  href="#">Break</a>
+            </span>
+            <span class="label-size label-size-1">
+              <a  href="#">Fashion</a>
+            </span>
+            <span class="label-size label-size-4">
+              <a  href="#">Food</a>
+            </span>
+            <span class="label-size label-size-1">
+              <a  href="#">Nature</a>
+            </span>
+            <span class="label-size label-size-3">
+              <a  href="#">Slider</a>
+            </span>
+            <span class="label-size label-size-4">
+              <a  href="#">Sport</a>
+            </span>
+            <span class="label-size label-size-1">
+              <a  href="#">Technology</a>
+            </span>
+            <span class="label-size label-size-4">
+              <a  href="#">Video</a>
+            </span>
+            <span class="label-size label-size-5">
+              <a  href="#">vimeo</a>
+            </span>
+        </div>
+    </div>
+  </div>
+  <!-- Recent posts panel -->
+  <div class="panel panel-default" >
+    <div class="panel-heading">
+      <h2 class="title"><span>Recent Posts</span></h2>
+    </div>
+    <div class="panel-body">
+      {% for post in posts %}
+      <div class="row recent-posts">
+        <div class="col-lg-6" style="margin-top:10px">
+          <a href="{% url 'post_detail' slug=post.slug %}" alt="{{ post.title }}">
+          <img class="img-responsive"  src="static/media/{{post.featured_image}}"></a>
+        </div>
+        <div class="col-lg-6">
+          <h4><a href="#">{{ post.title }}</a></h4>
+          <span class="side-item-meta"><a href="{% url 'post_detail' slug=post.slug %}" alt="{{ post.title }}">Read More</a></span>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+
+      </div>
+  </div>
