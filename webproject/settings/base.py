@@ -36,12 +36,12 @@ INSTALLED_APPS += [
     'ckeditor',
     'djangobower',
     'compressor',
-    'social_widgets',
+    'disqus',
 ]
 # my custom applications
 INSTALLED_APPS += [
     'fts',
-    'portfolio',
+    #'portfolio',
     #'comingsoon',
     'blog',
     'pages',

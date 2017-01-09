@@ -9,7 +9,9 @@ superuser:
 	./manage.py createsuperuser --username=admin --email=kkampardi@gmail.com --noinput
 
 data:
-	./manage.py loaddata portfolio.json
+
+	./manage.py loaddata blog.json
+	./manage.py loaddata pages.json
 
 setup: clean migrate data superuser
 
