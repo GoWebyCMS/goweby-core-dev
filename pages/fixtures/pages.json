@@ -1,0 +1,30 @@
+[
+{
+  "model": "pages.page",
+  "pk": 1,
+  "fields": {
+    "menu_title": "About",
+    "page_title": "About Me",
+    "slug": "about-me",
+    "body": "<p>Hello world,</p>\r\n\r\n<p>If you find your self in this page then you probably want to know a bit more about me and this space.</p>\r\n\r\n<p>Eleni:</p>\r\n\r\n<p>My name. Pronounced : e (eh) le (leh) ni (nee)</p>\r\n\r\n<p>Karyatid in London:</p>\r\n\r\n<p>Born and bread in Greece.</p>\r\n\r\n<p>Live and work in London.</p>\r\n\r\n<p>Visual blender:</p>\r\n\r\n<p>What I do for a living. Designer.</p>\r\n\r\n<p>Fascinated by all forms of creativity and creative minds.</p>\r\n\r\n<p>Dream mixologist:</p>\r\n\r\n<p>An expert in mixing and creating dreams.</p>\r\n\r\n<p>All dreamland products brought in life liquified and bottled for daily use.</p>\r\n\r\n<p>Amateur Avant-garde:</p>\r\n\r\n<p>What this space is about.</p>\r\n\r\n<p>Breaking down the words may be easier to describe what this space is about.</p>\r\n\r\n<p>Amateur: a person who engages in a pursuit, especially a sport, on an unpaid basis. (not good enough)</p>\r\n\r\n<p>Avant grade: new and experimental ideas and methods in art, music, or literature.</p>\r\n\r\n<p>Are people or works that are experimental, radical, or unorthodox,[1] with respect to art, culture, and society.t may be characterised by nontraditional, aesthetic innovation and initial unacceptability,[4] and it may offer a critique of the relationship between producer and consumer.</p>\r\n\r\n<p>A certain key quality of the amateur is not defined above.The approach of an amateur towards the chosen activity, is out of pure love on the subject that is involved . And it is because of that love , I believe , why an amateur is encouraged to explore more and learn. Also being liberated from the label of being an expert during the exploration,experimenting can lead to new discoveries. On the same page the approach of an avant-garde towards a subject is unorthodox, un conventional and possibly experimental in order promote innovative thinking.</p>\r\n\r\n<p>On this space , journal, website, I am going to experiment on presenting thoughts .ideas , everyday incidents, people and so much more.</p>\r\n\r\n<p>It is, if i may say, an unrefined attempt to document and share all the above.</p>\r\n\r\n<p>But approaching all presented subjects with love and interest combined. Dedicating my time and effort as this would be a project.</p>\r\n\r\n<p>Claiming to be nothing more than a total amateur.</p>\r\n\r\n<p>The amateur avant-garde.</p>\r\n\r\n<p>Eleni Zouliami.</p>",
+    "show_in_menu": true,
+    "publish": "2016-12-16T14:59:22.582Z",
+    "status": "published",
+    "image": "page/post3_0HxFleM.jpg"
+  }
+},
+{
+  "model": "pages.page",
+  "pk": 2,
+  "fields": {
+    "menu_title": "Contact",
+    "page_title": "Contact Me",
+    "slug": "contact-me",
+    "body": "<p>contact content</p>",
+    "show_in_menu": true,
+    "publish": "2016-12-16T14:59:30.214Z",
+    "status": "published",
+    "image": ""
+  }
+}
+]

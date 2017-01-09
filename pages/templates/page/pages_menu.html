@@ -1,0 +1,7 @@
+  {% for page in pages_menu %}
+  {% if page.status == 'published' %}
+  {% url 'page_detail' pk=page.pk as url_page_det %}
+  {{ request.get_full_path }}
+  <li {% if request.get_full_path == url_page_det %}class="active"{% endif %}><a href="{% url 'page_detail' slug=page.slug %}">{{page.menu_title}}</a></li>
+  {% endif %}
+  {% endfor %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="post-header">
+          <h2>{{page.page_title}}</h2>
+        </div>
+        {% if page.image %}
+          <div class="video-wrapper">
+            <img class="img-responsive" src="/static/media/{{page.image}}" alt="{{page.title}}">
+          </div>
+        {% endif %}
+        <div class="page-body">
+          {{page.body|safe}}
+        </div>
+        <div class="page-share">
+          <a href="https://www.facebook.com/profile.php?id=100012050839136" target="_blank"><span class="share-box"><i class="fa fa-facebook"></i></span></a>
+          <a href="https://www.instagram.com/theamateuravantgarde/" target="_blank"><span class="share-box"><i class="fa fa-instagram"></i></span></a>
+          <a href="https://twitter.com/Eleni_Zouliami" target="_blank"><span class="share-box"><i class="fa fa-twitter"></i></span></a>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 custom-sidebar">
+        {% if page.image %}
+        <div class="col-md-6">
+          <div class="video-wrapper">
+            <img src="/media/{{page.image}}" alt="{{page.title}}">
+          </div>
+        </div>
+        {% endif %}
+
+        {% include "sidebar.html" %}
+
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
