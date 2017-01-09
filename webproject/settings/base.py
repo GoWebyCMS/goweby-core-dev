@@ -36,12 +36,15 @@ INSTALLED_APPS += [
     'ckeditor',
     'djangobower',
     'compressor',
+    'social_widgets',
 ]
 # my custom applications
 INSTALLED_APPS += [
     'fts',
     'portfolio',
     #'comingsoon',
+    'blog',
+    'pages',
 ]
 
 # Enable compression app for css/js/img

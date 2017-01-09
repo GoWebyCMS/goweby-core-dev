@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from portfolio import views
 from portfolio import urls as port_urls
+from blog import urls as blog_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(port_urls)),
+    url(r'^', include(blog_urls)),
     ]
