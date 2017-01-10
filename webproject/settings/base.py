@@ -37,7 +37,9 @@ INSTALLED_APPS += [
     'djangobower',
     'compressor',
     'disqus',
+    'admin_honeypot',    
 ]
+
 # my custom applications
 INSTALLED_APPS += [
     'fts',
@@ -140,3 +142,12 @@ STATICFILES_FINDERS = (
     'djangobower.finders.BowerFinder',
     'compressor.finders.CompressorFinder',
 )
+
+
+# Haystack Configuration
+HAYSTACK_CONNECTIONS = {
+    'default': {
+    'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+    'URL': 'http://127.0.0.1:8983/solr/blog'
+    },
+}
