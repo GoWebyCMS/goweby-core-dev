@@ -3,6 +3,8 @@ from django.views.generic import ListView
 from itertools import chain
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 
+from .forms import SearchForm
+from haystack.query import  SearchQuerySet
 from .models import Post, Category, Tag
 
 # Create your views here.
@@ -50,3 +52,20 @@ def post_detail(request, slug):
                                 {
                                     'post': post,
                                 })
+
+def post_search(request):
+    form = SearchForm()
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            cd = form.cleaned_data
+            results = SearchQuerySet().models(Post).filter(content=cd['query']).load_all()
+            # count total results
+            total_results = results.count()
+    return render(request,
+            'blog/post/search.html',
+            {'form': form,
+            #'cd': cd,
+            #'results': results,
+            #'total_results': total_results
+            })
