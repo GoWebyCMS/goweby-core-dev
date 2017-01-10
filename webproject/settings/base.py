@@ -37,7 +37,8 @@ INSTALLED_APPS += [
     'djangobower',
     'compressor',
     'disqus',
-    'admin_honeypot',    
+    'admin_honeypot',
+    'haystack',
 ]
 
 # my custom applications
