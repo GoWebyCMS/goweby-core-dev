@@ -7,13 +7,13 @@ from .models import Post, Category, Tag
 class CategoryAdmin(admin.ModelAdmin):
     model = Category
     list_display = ('name',)
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {"slug": ("name",)}
 
 
 class TagAdmin(admin.ModelAdmin):
     model = Tag
     list_display = ('name',)
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {"slug": ("name",)}
 
 
 

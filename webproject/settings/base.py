@@ -37,8 +37,8 @@ INSTALLED_APPS += [
     'djangobower',
     'compressor',
     'disqus',
-    'admin_honeypot',
     'haystack',
+    'admin_honeypot',
 ]
 
 # my custom applications
@@ -55,7 +55,8 @@ COMPRESS_ENABLED = True
 
 # Site defult id
 SITE_ID = 1
-MIDDLEWARE = [
+
+MIDDLEWARE_CLASSES  = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
