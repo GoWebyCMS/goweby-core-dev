@@ -20,13 +20,21 @@ class PostListView(ListView):
     template_name = 'blog/post/list.html'
 """
 
-def post_list(request):
-    # grub categories
-    categories = Category.objects.all()
-    # pagenation
+def post_list(request, tag_slug=None):
+    # grub post list as an object list for pagenation
     object_list = Post.published.all()
+
+    # Tags: let user list all posts tagged with a specific tag
+    tag = None
+    if tag_slug:
+         tag = get_object_or_404(Tag, slug=tag_slug)
+         object_list = object_list.filter(tags__in=[tag])
+
+    # Pagenation
+
     paginator = Paginator(object_list, 3) # 3 posts in each page
     page = request.GET.get('page')
+
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -36,11 +44,14 @@ def post_list(request):
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
 
-    # fetch limited latest projects for the related sidebar widjet
+
+
+    # TODO: fetch limited latest projects for the related sidebar widjet
+
     return render(request, 'blog/post/list.html', {
             'posts': posts,
             'page' : page,
-            'categories': categories,
+            'tag' : tag,
             })
 
 def post_detail(request, slug):

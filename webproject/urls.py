@@ -22,7 +22,7 @@ from pages import urls as pages_urls
 
 urlpatterns = [
     url(r'^admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    url(r'^letsrockadmin/', include(admin.site.urls)),
+    url(r'^myadmin/', include(admin.site.urls)),
     # url(r'^', include(port_urls)),
     url(r'^', include(blog_urls)),
     url(r'^', include(pages_urls)),
