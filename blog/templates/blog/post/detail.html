@@ -54,15 +54,21 @@
                   </li>
                   </ul>
                 </div>
-                <div class="entry-tags gray-2-secondary"><strong class="tag-heading"><i class="fa fa-tag"></i>Tags:</strong>
-                <a href="" rel="tag">{{ post.tag.all|join:" / " }}</a>
+                <div class="entry-tags gray-2-secondary"><strong class="tag-heading"><i class="fa fa-tag"></i><a href="#" rel="tag">: {{ post.tags.all|join:"-" }} </a></strong>
               </div>
 
             <div  class="post-related">
               <div class="post-box">
                 <h4 class="post-box-title">You Might Also Like</h4>
               </div>
-              <div class="item-related"><a href="#"><img class="img-responsive" src="http://4.bp.blogspot.com/--TiUccko_b4/VQ51rAGp-TI/AAAAAAAAEe4/uoK5HMsqGh0/s300-c/3123004665_5cd4f1eafc_o-650x420.jpg" height="100" width="150"></a><h3><a href="">Amazing Video Quality Vimeo </a></h3></div>
+              {% for post in similar_posts %}
+              <div class="item-related">
+                <a href="{{ post.get_absolute_url }}">
+                  <img class="img-responsive" src="{{ post.featured_image }}" height="100" width="150">
+                </a>
+                <h3><a href="">{{ post.title}} </a></h3>
+              </div>
+              {% endfor %}
             </div>
           <!-- Discus -->
           <div id="disqus_thread"></div>

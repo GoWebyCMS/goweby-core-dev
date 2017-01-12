@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from itertools import chain
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
+from django.db.models import Count
 
 from .forms import SearchForm
 from haystack.query import  SearchQuerySet
@@ -58,10 +59,15 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     posts = Post.objects.all()
 
+    # retrieve a list of similar posts filtering by tag
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags','-publish')[:4]
 
     return render(request, 'blog/post/detail.html',
                                 {
                                     'post': post,
+                                    'similar_posts': similar_posts,
                                 })
 
 def post_search(request):
