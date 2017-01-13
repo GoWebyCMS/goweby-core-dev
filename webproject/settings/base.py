@@ -86,7 +86,9 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request'
+                'django.template.context_processors.request',
+                # Custom context_processors
+                'pages.pages_context.show_pages_menu',
             ],
         },
     },
