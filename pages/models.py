@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from django.utils import timezone
@@ -19,6 +20,10 @@ class Page(models.Model):
     status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
     image = models.ImageField(upload_to='page', blank=True, null=True)
 
+
+    def get_absolute_url(self):
+        return reverse('page_detail',
+                       args=[self.slug])
 
     class Meta:
         ordering = ('page_title',)
