@@ -4,6 +4,8 @@ from ckeditor.fields import RichTextField
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 
+from category.models import Category
+
 # create model manager for Posts to include custom filter
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -11,31 +13,18 @@ class PublishedManager(models.Manager):
 
 # Create your models here.
 
-class Category(models.Model):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=50, unique=True)
+class Category(Category):
 
     class Meta:
-        ordering = ('name',)
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
-    def __str__(self):
-        return self.name
 
-
-class Tag(models.Model):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=50, unique=True)
+class Tag(Category):
 
     class Meta:
-        ordering = ('name',)
         verbose_name = 'Tag'
         verbose_name_plural = 'Tags'
-
-    def __str__(self):
-        return self.name
-
 
 
 class Post(models.Model):

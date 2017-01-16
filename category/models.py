@@ -4,11 +4,13 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=300)
-    slug = models.SlugField()
+    name = models.CharField(max_length=300, unique=True)
+    slug = models.SlugField(max_length=50, unique=True)
 
     class Meta:
         abstract = True
+        ordering = ('name',)
+
 
     def __str__(slef):
         return self.name

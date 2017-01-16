@@ -46,8 +46,10 @@ INSTALLED_APPS += [
     'fts',
     #'portfolio',
     #'comingsoon',
+    'category',
     'blog',
     'pages',
+
 ]
 
 # Enable compression app for css/js/img
