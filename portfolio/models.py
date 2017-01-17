@@ -2,7 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
+from django.core.urlresolvers import reverse
 
+from category.models import Category
 # custom model managers
 
 # a custom published manager
@@ -13,24 +15,48 @@ class PublishedManager(models.Manager):
 
 # Create your models here.
 
+
+class ProjectCategory(Category):
+
+    class Meta:
+        verbose_name = "category"
+        verbose_name_plural = "categories"
+
+
+class Skill(Category):
+
+    class Meta:
+        verbose_name = "Skill"
+        verbose_name_plural = "Skills"
+
+
 class Project(models.Model):
     STATUS_CHOICES = (
-        ('draft', 'Draft'),
-        ('published', 'Published'),
+            ('draft', 'Draft'),
+            ('completed', 'Completed'),
         )
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, unique=True)
-    short_description = models.TextField(blank=True, null=True)
+    url = models.URLField(blank=True, null=True)
+    short_description = models.CharField(max_length=350)
     description = RichTextField()
-    date = models.DateField(blank=True, null=True)
+    job = models.CharField(max_length=200, blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
     client = models.CharField(max_length=200, blank=True, null=True)
-    category = models.ForeignKey('Category', blank=True, null=True, related_name="projects")
-    image = models.ImageField(upload_to='portfolio', blank=True, null=True)
-    status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
+    categories = models.ForeignKey('ProjectCategory', blank=True, null=True, related_name="project_categories")
+    skills = models.ManyToManyField('Skill', related_name="project_skills")
+    featured_image = models.ImageField(upload_to='portfolio', blank=True, null=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
 
+
+    objects = models.Manager()  # The default manager.
+    published = PublishedManager()  # Our custom manager.
+
+    def get_absolute_url(self):
+        return reverse('portfolio:portfolio_detail',args=[self.slug])
 
     class Meta:
-        ordering = [ 'date', ]
+        ordering = [ 'end_date', ]
 
     def __str__(self):
         return self.name
@@ -38,16 +64,3 @@ class Project(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=50, unique=True)
-
-    class Meta:
-        ordering = ('name',)
-        verbose_name = "category"
-        verbose_name_plural = "categories"
-
-    def __str__(self):
-        return self.name

@@ -1,2 +1,43 @@
 [
+{
+  "model": "portfolio.category",
+  "pk": 1,
+  "fields": {
+    "name": "Category One",
+    "slug": "category-one"
+  }
+},
+{
+  "model": "portfolio.category",
+  "pk": 2,
+  "fields": {
+    "name": "Skill One",
+    "slug": "skill-one"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 2,
+  "fields": {}
+},
+{
+  "model": "portfolio.project",
+  "pk": 1,
+  "fields": {
+    "name": "Project One",
+    "slug": "project-one",
+    "url": "https://github.com/Django-Hatchery/hatchery-core-dev/issues",
+    "short_description": "Lorem Ipsum Generator provides a GTK+ graphical user interface, a command-line interface, and a Python module that generate random \"lorem ipsum\" text (a popular kind of dummy text) (BSD Original, Libraries, Utilities, Testing, Web).Test",
+    "description": "<p>Lorem Ipsum Generator provides a GTK+ graphical user interface, a command-line interface, and a Python module that generate random &quot;lorem ipsum&quot; text (a popular kind of dummy text) (BSD Original, Libraries, Utilities, Testing, Web).</p>\r\n\r\n<p>Lorem Ipsum Generator provides a GTK+ graphical user interface, a command-line interface, and a Python module that generate random &quot;lorem ipsum&quot; text (a popular kind of dummy text) (BSD Original, Libraries, Utilities, Testing, Web).</p>",
+    "job": "Test",
+    "end_date": "2017-01-17",
+    "client": "Test",
+    "categories": 1,
+    "featured_image": "portfolio/-text_BeWF9mM.png",
+    "status": "completed",
+    "skills": [
+      2
+    ]
+  }
+}
 ]
