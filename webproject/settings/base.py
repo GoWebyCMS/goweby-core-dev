@@ -44,10 +44,10 @@ INSTALLED_APPS += [
 # my custom applications
 INSTALLED_APPS += [
     'fts',
-    #'portfolio',
     #'comingsoon',
     'category',
     'blog',
+    'portfolio',
     'pages',
 
 ]
