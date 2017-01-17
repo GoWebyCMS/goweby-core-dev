@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+      <div class="col-lg-8">
+        <h1>{{post.title}}</h1>
+        <p>
+          {{ post.body|safe}}
+        </p>
+
+        <h2 class="post-box-title">You Might Also Like</h2>
+
+        {% for post in similar_posts %}
+        <div class="item-related">
+          <a href="{{ post.get_absolute_url }}">
+            <img class="img-responsive" src="{{ post.featured_image }}" height="100" width="150">
+          </a>
+          <h3><a href="">{{ post.title}} </a></h3>
+        </div>
+        {% endfor %}
+      </div>
+
+
+{% endblock %}
