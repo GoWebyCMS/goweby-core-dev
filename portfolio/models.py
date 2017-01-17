@@ -53,7 +53,7 @@ class Project(models.Model):
     published = PublishedManager()  # Our custom manager.
 
     def get_absolute_url(self):
-        return reverse('portfolio:portfolio_detail',args=[self.slug])
+        return reverse('portfolio_detail',args=[self.slug])
 
     class Meta:
         ordering = [ 'end_date', ]
