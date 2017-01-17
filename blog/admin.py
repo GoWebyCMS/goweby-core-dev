@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Post, Category, Tag
+from .models import Post, PostCategory, Tag
 
 # Customize the way models are displayed
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    model = Category
+    model = PostCategory
     list_display = ('name',)
     prepopulated_fields = {"slug": ("name",)}
 
@@ -30,5 +30,5 @@ class PostAdmin(admin.ModelAdmin):
 # Register your models here.
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(PostCategory, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)

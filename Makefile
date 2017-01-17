@@ -15,8 +15,11 @@ data:
 
 setup: clean migrate data superuser
 
-dumpdata:
+dump-blog:
 	./manage.py dumpdata blog --indent=2 --output=blog/fixtures/blog.json
+
+dump-portfolio:
+	./manage.py dumpdata portfolio --indent=2 --output=portfolio/fixtures/portfolio.json
 
 make_blog_db:
 	./manage.py makemigrations portfolio --noinput

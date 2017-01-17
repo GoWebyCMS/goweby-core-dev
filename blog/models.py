@@ -13,7 +13,7 @@ class PublishedManager(models.Manager):
 
 # Create your models here.
 
-class Category(Category):
+class PostCategory(Category):
 
     class Meta:
         verbose_name = 'Category'
@@ -35,7 +35,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(User, related_name='blog_posts', blank=True, null=True)
-    category = models.ForeignKey(Category, related_name='post_category')
+    category = models.ForeignKey(PostCategory, related_name='post_category')
     tags = models.ManyToManyField(Tag, related_name='post_tag')
     featured = models.BooleanField(default=False)
     body = RichTextField()
