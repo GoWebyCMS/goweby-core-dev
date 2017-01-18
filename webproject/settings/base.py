@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
@@ -49,13 +50,12 @@ INSTALLED_APPS += [
     'blog',
     'portfolio',
     'pages',
-
 ]
 
 # Enable compression app for css/js/img
 COMPRESS_ENABLED = True
 
-# Site defult id
+# Site defult id, configuration for cotrib sites and contrib sitemaps
 SITE_ID = 1
 
 MIDDLEWARE_CLASSES  = [

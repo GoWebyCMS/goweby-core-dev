@@ -15,16 +15,24 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 
 # from portfolio import urls as port_urls
 from blog import urls as blog_urls
 from pages import urls as pages_urls
 from portfolio import urls as port_urls
+from blog.sitemaps import PostSitemap
+
+sitemaps = {
+    'posts': PostSitemap,
+}
+
 
 urlpatterns = [
     url(r'^admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     url(r'^myadmin/', include(admin.site.urls)),
     url(r'^portfolio/', include(port_urls)),
     url(r'^', include(blog_urls)),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^', include(pages_urls)),
     ]
