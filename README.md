@@ -1,12 +1,11 @@
-![alt text](https://github.com/kkampardi/hatchery/blob/master/portfolio/static/img/sm-logo.png "Hatchery Project Logo")
-# Hatchery 
+# Go Weby CMS
 
 ## Custom CMS build with Django Web and ReST Frameworks
 
 About
 ------
 
-Hatchery is an open-source platform built on the Django Web Framework.
+Go Weby is an open-source platform built on the Django Web Framework.
 It intents to be an ecosystem of reusable Django apps, for the Web.
 
 This project is in development progress. The basic idea is the construction of an easy to use
