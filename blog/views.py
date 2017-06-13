@@ -5,7 +5,6 @@ from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.db.models import Count
 
 from .forms import SearchForm
-from haystack.query import  SearchQuerySet
 from .models import Post, Category, Tag
 
 # Create your views here.

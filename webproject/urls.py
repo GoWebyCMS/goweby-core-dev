@@ -29,8 +29,7 @@ sitemaps = {
 
 
 urlpatterns = [
-    url(r'^admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    url(r'^myadmin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^portfolio/', include(port_urls)),
     url(r'^', include(blog_urls)),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
