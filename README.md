@@ -13,7 +13,17 @@ CMS for multiple purpose web applications  .
 
 
 Installation for Development
----------------
+----------------------------
+### Install and setup using Docker
+TODO: Fill the instruction for the docker setup
+
+#### Install the docker toolbox
+     The first step is to install the [url]Docker Toolbox.
+
+#### Run manage.py using
+     docker-compose run web python manage.py migrate
+
+
 ### Install and setup Virtualenv
 
 - $ sudo pip install virtualenv
