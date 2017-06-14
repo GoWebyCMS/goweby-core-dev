@@ -49,6 +49,12 @@ INSTALLED_APPS += [
     'pages',
 ]
 
+# third party apps
+INSTALLED_APPS += [
+    'filer',
+    'easy_thumbnails',
+]
+
 # Enable compression app for css/js/img
 COMPRESS_ENABLED = True
 
