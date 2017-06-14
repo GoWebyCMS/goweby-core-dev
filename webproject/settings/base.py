@@ -37,6 +37,9 @@ INSTALLED_APPS += [
     'ckeditor',
     'djangobower',
     'compressor',
+    'easy_thumbnails',
+    'filer',
+    'mptt',
 ]
 
 # my custom applications
@@ -49,11 +52,17 @@ INSTALLED_APPS += [
     'pages',
 ]
 
-# third party apps
-INSTALLED_APPS += [
-    'filer',
-    'easy_thumbnails',
-]
+# for easy thumbnails to support retina displays:
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
 
 # Enable compression app for css/js/img
 COMPRESS_ENABLED = True

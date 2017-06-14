@@ -11,4 +11,7 @@ six==1.10.0
 psycopg2
 disqus-python==0.4.2
 django-disqus==0.5
+django-filer
+django-mptt >=0.6
+django-polymorphic >= 0.7
 cmsplugin-filer

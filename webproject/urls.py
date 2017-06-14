@@ -34,4 +34,5 @@ urlpatterns = [
     url(r'^', include(blog_urls)),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^', include(pages_urls)),
+    url(r'^filer/', include('filer.urls')),
     ]
