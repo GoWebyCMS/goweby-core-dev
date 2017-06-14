@@ -17,18 +17,29 @@ Installation for Development
 ### Install and setup using Docker
 TODO: Fill the instruction for the docker setup
 
-#### Install the docker toolbox
+### Install the docker toolbox
      The first step is to install the [url]Docker Toolbox.
 
 #### Run manage.py using
      docker-compose run web python manage.py migrate
 
+### Manual setup
 
-### Install and setup Virtualenv
+### Install and setup using Virtualenv
 
 - $ sudo pip install virtualenv
 - $ virtualenv -p /usr/bin/python3 envname
 - $ source envname/bin/activate
+
+#### Python & Django dependencies
+
+  Virtual environment use is strongly recommended
+
+    - $ pip install -r requirements/dev.txt
+
+  Time for database setup
+
+  - make start # This will make the first migrations, and a root superuser creation
 
 ### Install project dev dependencies
 
@@ -44,18 +55,7 @@ Install npm and bower dependencies
 
   - $ bower install
 
-#### Python & Django dependencies
-
-  Virtual environment use is strongly recommended
-
-    - $ pip install -r requirements/dev.txt
-
-  Time for database setup
-
-  - make start # This will make the first migrations, and a root superuser creation
-
-
-### Build Assets
+#### Build Assets
 
 Use the Gulp Task Runner
 
